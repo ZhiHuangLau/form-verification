@@ -1,0 +1,14 @@
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+.formEle{
+  display: flex;
+  flex-direction: row;
+}
+
+input,
+select{
+  margin-left: 10px;
+}
