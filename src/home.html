@@ -10,7 +10,7 @@
 <form novalidate>
   <div class="formEle">
     <label for="mail">Email</label><span style="color: red !important; display: inline; float: none;">*</span>
-    <input type="email" name="mail" id="mail">
+    <input type="email" name="mail" id="mail" required>
     <span class="error" aria-live="polite"></span>
   </div>
   
@@ -265,15 +265,18 @@
   </div>           
   <div class="formEle">
     <label for="postalCode">Postal Code</label><span style="color: red !important; display: inline; float: none;">*</span>
-    <input type="number" name="postalCode" id="postalCode">
+    <input type="number" name="postalCode" id="postalCode"  required>
+    <span class="error" aria-live="polite"></span>
   </div>
   <div class="formEle">
     <label for="pwd">Password</label><span style="color: red !important; display: inline; float: none;">*</span>
-    <input type="password" name="pwd" id="pwd">
+    <input type="password" name="pwd" id="pwd" minlength="8" required>
+    <span class="error" aria-live="polite"></span>
   </div>
   <div class="formEle"> 
     <label for="conPwd">Confirm Password</label><span style="color: red !important; display: inline; float: none;">*</span>
     <input type="password" name="conPwd" id="conPwd">
+    <span class="error" aria-live="polite"></span>
    </div>
    <button>Submit</button>
  

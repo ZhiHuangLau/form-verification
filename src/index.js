@@ -1,6 +1,10 @@
 const form = document.querySelector("form");
 const email = document.getElementById("mail");
 const emailError = document.querySelector("#mail + span.error");
+const password = document.getElementById("pwd");
+const passwordError = document.querySelector("#pwd + span.error");
+const password2 = document.getElementById("conPwd")
+const password2Error = document.querySelector("#conPwd + span.error");
 
 email.addEventListener("input", (event) => {
   if (email.validity.valid) {
@@ -8,7 +12,7 @@ email.addEventListener("input", (event) => {
     emailError.className = "error"; // Removes the `active` class
   } else {
     // If there is still an error, show the correct error
-    showError();
+    showEmailError();
   }
 });
 
@@ -16,13 +20,13 @@ form.addEventListener("submit", (event) => {
   // if the email field is invalid
   if (!email.validity.valid) {
     // display an appropriate error message
-    showError();
+    showEmailError();
     // prevent form submission
     event.preventDefault();
   }
 });
 
-function showError() {
+function showEmailError() {
   if (email.validity.valueMissing) {
     // If empty
     emailError.textContent = "You need to enter an email address.";
@@ -35,4 +39,27 @@ function showError() {
   }
   // Add the `active` class
   emailError.className = "error active";
+}
+
+
+password.addEventListener("input", (event) => {
+  if (password.validity.valid) {
+    passwordError.textContent = ""; // Remove the message content
+    passwordError.className = "error"; // Removes the `active` class
+  } else {
+    // If there is still an error, show the correct error
+    showPwdError();
+  }
+});
+
+function showPwdError() {
+  if (password.validity.valueMissing) {
+    // If empty
+    passwordError.textContent = "You need to enter a password.";
+  } else if (password.validity.tooShort) {
+    // If the value is too short,
+    passwordError.textContent = `Password should be at least ${password.minLength} characters; you entered ${password.value.length}.`;
+  }
+  // Add the `active` class
+  passwordError.className = "error active";
 }
