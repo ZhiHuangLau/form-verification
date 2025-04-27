@@ -9,9 +9,11 @@
 <body>
 <form novalidate>
   <div class="formEle">
-    <label for="email">Email</label><span style="color: red !important; display: inline; float: none;">*</span>
-    <input type="email" name="email" id="email">
+    <label for="mail">Email</label><span style="color: red !important; display: inline; float: none;">*</span>
+    <input type="email" name="mail" id="mail">
+    <span class="error" aria-live="polite"></span>
   </div>
+  
   <div class="formEle">
     <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>      
               <select id="country" name="country" class="form-control">
@@ -273,6 +275,7 @@
     <label for="conPwd">Confirm Password</label><span style="color: red !important; display: inline; float: none;">*</span>
     <input type="password" name="conPwd" id="conPwd">
    </div>
+   <button>Submit</button>
  
 </form> 
 </body>
