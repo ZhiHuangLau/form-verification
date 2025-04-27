@@ -63,3 +63,30 @@ function showPwdError() {
   // Add the `active` class
   passwordError.className = "error active";
 }
+
+password2.addEventListener("input", (event) => {
+  if (password2.validity.valid & (password2.value == password.value)) {
+    password2Error.textContent = ""; // Remove the message content
+    password2Error.className = "error"; // Removes the `active` class
+  } else {
+    // If there is still an error, show the correct error
+    showPwd2Error();
+  }
+});
+
+
+function showPwd2Error() {
+  if (password2.validity.valueMissing) {
+    // If empty
+    password2Error.textContent = "You need to enter a password.";
+  } else if (password2.validity.tooShort) {
+    // If the value is too short,
+    password2Error.textContent = `Password should be at least ${password2.minLength} characters; you entered ${password2.value.length}.`;
+  } else if (password.value != password2.value){
+    // If the passwords do not match,
+    password2Error.textContent= 'The passwords do not match.'
+    return false
+  }
+  // Add the `active` class
+  password2Error.className = "error active";
+}
